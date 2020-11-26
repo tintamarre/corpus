@@ -1,0 +1,42 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+// Fonts
+@import "node_modules/font-awesome/scss/font-awesome";
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+// Laracast css custom
+div.alert-flash {
+  position: fixed;
+  top: 2%;
+  left: 70%;
+  margin-left: 0px;
+  width: 300px;
+  z-index: 9999;
+}
+
+label {
+  font-weight: bold;
+}
+
+small {
+  color: #333;
+}
+
+.text-content {
+  white-space: pre-wrap;       /* Since CSS 2.1 */
+  width: 65ch;
+  word-wrap: break-word;
+  hyphens: auto;
+  line-height: 25px;
+  // font-family: monospace;
+}
+
+.lightgray {
+  color: #ccc;
+}

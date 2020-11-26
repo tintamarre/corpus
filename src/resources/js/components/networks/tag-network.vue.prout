@@ -1,0 +1,65 @@
+<template>
+
+  <div>
+
+
+
+    <network
+style="
+width: 700px;
+height: 500px;
+"
+ref="network"
+:nodes="nodes"
+:edges="edges"
+:options="options">
+</network>
+<!-- {{ route('api.vis.network', [$organisation->slug, $process->id]) }} -->
+
+  </div>
+</template>
+
+<style>
+
+</style>
+
+<script>
+// import GetDataMixin from '../../GetDataMixin';
+
+export default {
+  // props: ['page_url'],
+  // mixins: [ GetDataMixin ],
+
+  mounted() {
+  },
+  data() {
+    return {
+      data: {
+        nodes: [],
+        edges: [],
+        options: {
+          height: '100%',
+          width: '100%',
+          nodes: {
+            margin: 10,
+            widthConstraint: {
+              maximum: 200
+            },
+            size: 40,
+            font: {
+              multi: 'html',
+              size: 16,
+              color: '#344c77'
+            },
+            borderWidth: 2,
+            // shadow:true
+          },
+          edges: {
+            width: 2
+          },
+        },
+      },
+    }
+  }
+}
+</script>
