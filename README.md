@@ -14,7 +14,18 @@ Available for ULiège students and staff at this address: <https://corpus.lltl.b
 Soon.
 
 ## Docs
-Soon.
+Documentation is available (work in progress) at <docs.lltl.be>
 
 ## License
 GPLv3 : <https://raw.githubusercontent.com/tintamarre/corpus/main/LICENSE>
+
+# Development
+
+## Deploying
+
+## Contributing
+See https://raw.githubusercontent.com/tintamarre/corpus/main/CONTRIBUTING.md
+
+# Production
+
+If you want to launch your own instance of Corpus
