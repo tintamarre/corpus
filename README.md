@@ -1,6 +1,7 @@
 🚧 Under construction. Please come back. 🤓
 
 # Corpus
+## Application for Corpus analysis
 
 Project developed by the [LegalTechLab](https://legaltech.uliege.be/) of [University of Liège](https://uliege.be) in Belgium.
 
@@ -25,7 +26,10 @@ GPLv3 : <https://raw.githubusercontent.com/tintamarre/corpus/main/LICENSE>
 
 ## Testing
 
-Launch docker-compose
+Launch
+```
+cd src && docker-compose up
+```
 
 ## Deploying
 
@@ -35,6 +39,3 @@ See the [contributing guidelines](https://github.com/tintamarre/corpus/blob/main
 # Production
 
 If you want to launch your own instance of Corpus.
-
-## Testing
-## PLaunch docker-compose to 

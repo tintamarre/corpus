@@ -61,23 +61,23 @@ return [
   'reading_speed' => 200, // Words per minutes
   'tagging_speed' => 100, // Words per minutes
   'default_color' => '#3e6391',
-  'git_source_code' => 'https://gitlab.uliege.be/legaltech-lab/corpus/',
-  'mit_license_url' => 'https://gitlab.uliege.be/legaltech-lab/corpus/LICENSE',
+  'git_source_code' => 'https://github.com/tintamarre/corpus',
+  'license_url' => 'https://raw.githubusercontent.com/tintamarre/corpus/main/LICENSE',
   'project_name' => 'Liège LegalTech Lab (LLTL)',
   'author_name' => 'Martin Erpicum',
   'author_email' => 'martin@erpicum.net',
   'person_in_charge' => 'Martin Erpicum',
-  'promotor_url' => 'http://uliege.be',
+  'promotor_url' => 'https://uliege.be',
   'promotor_name' => 'ULiège',
   'project_partners' => [
     [
       'name' => 'Spiral',
-      'url' => 'http://www.spiral.ulg.ac.be',
+      'url' => 'https://spiral.uliege.be',
       'person_in_charge' => 'Pierre Delvenne',
     ],
     [
       'name' => 'Cris',
-      'url' => 'http://labos.ulg.ac.be/cris/',
+      'url' => 'https://labos.ulg.ac.be/cris/',
       'person_in_charge' => 'Christophe Dubois',
     ],
   ],

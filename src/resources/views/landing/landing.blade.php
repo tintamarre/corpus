@@ -120,7 +120,7 @@ Analysis should be shareable and removable and swipeable:
 
 <div class="card-footer">
   <div class="text-center small">
-    <a href="{{ config('core_settings.gpl_license_url') }}">GPL License</a> | <a href="{{ config('core_settings.git_source_code') }}">Source code on Gitlab</a>
+    <a href="{{ config('core_settings.license_url') }}">GPLv3 License</a> | <a href="{{ config('core_settings.git_source_code') }}">Source code on Gitlab</a>
     <br />
     Project by <em>{{ config('core_settings.project_name') }}</em> from <a href="{{ config('core_settings.promotor_url') }}" alt="">{{ config('core_settings.promotor_name') }}</a>
   </div>
