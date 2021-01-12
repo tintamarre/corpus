@@ -2,8 +2,6 @@
 
 namespace App\Helpers;
 
-use Str;
-
 class HelpersBasic
 {
     public function __construct()

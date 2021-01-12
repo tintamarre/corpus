@@ -68,6 +68,7 @@ return [
   'author_email' => 'martin@erpicum.net',
   'person_in_charge' => 'Martin Erpicum',
   'promotor_url' => 'https://uliege.be',
+  'lltl_url' => 'https://legaltech.uliege.be',
   'promotor_name' => 'ULiège',
   'project_partners' => [
     [
