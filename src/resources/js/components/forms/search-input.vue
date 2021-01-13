@@ -1,41 +1,42 @@
 <template>
-  <form :action="'/search/' + query" method="get">
-
+  <form :action="'/search/' + myQuery" method="get">
     <input
-    class="form-control"
-    type="text"
-    placeholder="Search"
-    aria-label="Search"
-    v-model="query"
-    >
+      class="form-control"
+      type="text"
+      placeholder="Search"
+      aria-label="Search"
+      v-model="myQuery"
+    />
 
     <button
-    v-if="query != null"
-    class="btn btn-primary pull-right"
-    type="submit">
-    {{ __('app.search') }}
-    <fa icon="search"></fa>
-  </button>
-
-
-</form>
+      v-if="query != null"
+      class="btn btn-primary pull-right"
+      type="submit"
+    >
+      {{ __("app.search") }}
+      <fa icon="search"></fa>
+    </button>
+  </form>
 </template>
 
 <style>
-
 </style>
 
 <script>
-
 export default {
-  props: ['query'],
+  props: ["query"],
 
-  mounted() {
-  },
+  mounted() {},
   data() {
     return {
-      query: ''
-    }
-  }
-}
+      myQuery: null,
+    };
+  },
+
+  computed: {
+    getQuery() {
+      let myQuery = this.query;
+    },
+  },
+};
 </script>
