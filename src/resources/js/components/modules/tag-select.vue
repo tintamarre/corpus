@@ -3,9 +3,9 @@
   <div class="row">
     <div class="col">
       <div>
-        <!-- <label class="typo__label">
-        <fa icon="tag"></fa>
-      </label> -->
+        <label class="typo__label">
+          <fa icon="tag"></fa>
+        </label>
         <multiselect
           id="tag_select"
           v-model="value"
@@ -60,9 +60,6 @@ export default {
       value: [],
       add_new: false,
       options: [],
-      error: null,
-      errors: {},
-      success: false,
       loaded: true,
       action: "",
       isLoading: false,
@@ -70,7 +67,6 @@ export default {
   },
   methods: {
     emitReloadDataEvent() {
-      console.log("reload");
       this.$emit("reload-data");
     },
     fetchTagsData(page_url) {
@@ -90,8 +86,7 @@ export default {
       // $('#tag_select').focus();
     },
     newTag(newTagName) {
-      console.log("new tag");
-
+      // console.log("new tag");
       const new_tag = {
         name: newTagName,
       };
@@ -111,10 +106,10 @@ export default {
       this.fields = tags;
       this.snippet.selected = false;
       // this.$emit('add-new-segment-tag', tags);
-      // Post to segment_tag this.$emit('add-new-segment-tag', tags)
+      // POST to segment_tag this.$emit('add-new-segment-tag', tags)
       this.submitPost();
       this.emitReloadDataEvent();
-      // ulgy fix
+      // UGLY FIX to wait for posting to complete
       setTimeout(() => {
         this.emitReloadDataEvent();
       }, 1000);
