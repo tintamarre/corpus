@@ -9,52 +9,71 @@
                     {{ config('app.name', '') }}
                 </div>
 
-                
-                
-                 <div class="card-body">
-                 <div class="row">
-                
-                    <div class="text-justify col-md-6 offset-md-3">
-
-                    <p>
-                    Corpus is developed by the University of Liège and licensed under GPLv3. Code source is available at GitHub and everybody is welcome to contribute.
-                    </p>
-
-                    <p>
-                    The purpose of Corpus is to provide an easy and elegant solution to simply doing manual text analysis of documents.  
-                    </p>
-
-                    <div class="text-center">
-                        <img src="{{ asset('storage/corpus-workflow.png') }}"
-
-                            width="400px" alt="">
-                    </div>
-                    </div>
-
-                    <div class="col-md-2">
-                        <a href="https://docs.lltl.be"
-                            class="btn btn-primary pull-right">
-                            <fa icon="file-alt"></fa>
-                            Docs
-                        </a>
-                           @auth
-
-                        <a href="{{ route('portfolio') }}"
-                            class="btn btn-success pull-right">
-                            <fa icon="tachometer-alt"></fa>
-                            {{ __('app.portfolio') }}
-                        </a>
-                        @endauth
-
-                    </div>
-                
 
 
-                    <div class="text-right col-md-12">
-                        <a href="{{ config('core_settings.lltl_url') }}"><img src="{{ asset('storage/legaltech_logo.png') }}"
-                            width="240px" alt="" class="pull-right">
+                <div class="card-body">
+                    <div class="row">
+
+                        <div
+                            class="text-justify col-md-8 offset-md-2">
+                            <h1 class="display-4">
+                                {{ config('app.name', '') }}
+                            </h1>
+
+                            <p class="lead">
+                                In order to simplify and facilitate a
+                                methodology for corpus analysis (case
+                                law, interview, focus groups, press
+                                articles, etc.), Corpus offers a
+                                service that is both simple and
+                                efficient, based on the experience in
+                                qualitative methodology by
+                                <strong>ULiège</strong>.
+                            </p>
+
+                            <div class="text-center">
+                                <img src="{{ asset('storage/corpus-workflow.png') }}"
+                                    width="400px"
+                                    alt="corpus workflow">
+                            </div>
+
+                            <p class="lead">
+                                Corpus is developed by the University
+                                of Liège and licensed under
+                                <strong>GPLv3</strong>.
+                                Code source is available at
+                                <strong>GitHub</strong> and
+                                everybody is welcome to contribute.
+                            </p>
+                        </div>
+
+                        <div class="col-md-2">
+                            <a href="https://docs.lltl.be"
+                                class="btn btn-primary pull-right">
+                                <fa icon="file-alt"></fa>
+                                Docs
                             </a>
-                    </div>
+                            @auth
+
+                            <a href="{{ route('portfolio') }}"
+                                class="btn btn-success pull-right">
+                                <fa icon="tachometer-alt"></fa>
+                                {{ __('app.portfolio') }}
+                            </a>
+                            @endauth
+
+                        </div>
+
+
+
+                        <div class="text-right col-md-12">
+                            <a
+                                href="{{ config('core_settings.lltl_url') }}"><img
+                                    src="{{ asset('storage/legaltech_logo.png') }}"
+                                    width="240px" alt=""
+                                    class="pull-right">
+                            </a>
+                        </div>
                     </div>
                 </div>
 

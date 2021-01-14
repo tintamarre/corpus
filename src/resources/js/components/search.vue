@@ -25,11 +25,8 @@
               <samp class="text-muted text-sm">
                 {{ __("app.did_you_mean") }}
               </samp>
-              <results :results="fields.results" />
             </div>
-            <div v-else>
-              <results :results="fields.results" />
-            </div>
+            <results :results="fields.results" />
           </div>
         </div>
       </div>

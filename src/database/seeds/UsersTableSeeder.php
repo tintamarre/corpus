@@ -11,7 +11,7 @@ class UsersTableSeeder extends Seeder
     */
     public function run()
     {
-      $demo = factory(App\User::class)
+        $demo = factory(App\User::class)
       ->create([
         'name' => 'Corpus Demo',
         'email' => 'demo@corpus.dom',

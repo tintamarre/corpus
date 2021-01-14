@@ -9,7 +9,7 @@ Project developed by the [LegalTechLab](https://legaltech.uliege.be/) of [Univer
 
 ## Description
 
-In order to simplify and facilitate a methodology for corpus analysis (interviews, focus groups, press articles, etc.), Corpus offers a service that is both simple and efficient, based on the experience in qualitative methodology by ULiège. The methodology proposed by Corpus comprises three essential steps. We distinguish exploration, stripping and analysis.
+In order to simplify and facilitate a methodology for corpus analysis (case law, interview, focus groups, press articles, etc.), Corpus offers a service that is both simple and efficient, based on the experience in qualitative methodology by ULiège.
 
 Available for [ULiège](https://uliege.be) students and staff at this address: <https://corpus.lltl.be/>
 
