@@ -9,7 +9,7 @@
     />
 
     <button
-      v-if="query != null"
+      v-if="myQuery != null"
       class="btn btn-primary pull-right"
       type="submit"
     >
@@ -29,7 +29,7 @@ export default {
   mounted() {},
   data() {
     return {
-      myQuery: null,
+      myQuery: this.query,
     };
   },
 

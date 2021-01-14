@@ -19,13 +19,12 @@
           </div>
           <div v-else>
             <div v-if="fields.didyoumean">
-              <samp>
+              <code>
+                {{ __("app.nothing_to_show") }}
+              </code>
+              <samp class="text-muted text-sm">
                 {{ __("app.did_you_mean") }}
-                <!-- <small>
-                  {{ __("app.nothing_to_show") }}
-              </small> -->
               </samp>
-
               <results :results="fields.results" />
             </div>
             <div v-else>

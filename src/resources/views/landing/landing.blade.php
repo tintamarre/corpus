@@ -26,7 +26,7 @@
 
                     <div class="text-center">
                         <img src="{{ asset('storage/corpus-workflow.png') }}"
-                        
+
                             width="400px" alt="">
                     </div>
                     </div>
@@ -50,9 +50,9 @@
                 
 
 
-                    <div class="text-right col-md-2 offset-md-9 pull-right">
+                    <div class="text-right col-md-12">
                         <a href="{{ config('core_settings.lltl_url') }}"><img src="{{ asset('storage/legaltech_logo.png') }}"
-                            width="240px" alt="">
+                            width="240px" alt="" class="pull-right">
                             </a>
                     </div>
                     </div>

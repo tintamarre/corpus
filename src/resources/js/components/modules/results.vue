@@ -1,8 +1,11 @@
 <template>
   <div>
     <h3>
-      {{ __("app.results") }}
-      <small class="text-muted">{{ results.result_count }}</small>
+      {{ __("app.results") }} {{ __("app.for") }}
+      <code>
+        <em>{{ results.results[0].needle }}</em>
+      </code>
+      <small class="text-muted">({{ results.result_count }})</small>
     </h3>
 
     <ul class="list-group list-group-flush">

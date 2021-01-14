@@ -27,6 +27,8 @@ return [
   'results' => 'Results',
   'query' => 'query',
 
+  'for' => 'for',
+
   'cached' => 'Cached',
   'click_to_reset_cache' => 'Click to reset cache',
   'never' => 'Never',

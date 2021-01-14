@@ -14,9 +14,9 @@
             <th scope="col">
               {{ __("app.role") }}
             </th>
-            <th scope="col">
+            <!-- <th scope="col">
               {{ __("app.action") }}
-            </th>
+            </th> -->
           </tr>
         </thead>
 
@@ -52,15 +52,15 @@
               <em>{{ item.role }}</em>
             </td>
 
-            <td>
-              <a
+            <!-- <td>
+               <a
                 href="#"
                 v-tooltip:top="__('app.edit')"
                 class="btn btn-sm btn-link"
               >
                 <fa icon="cogs" />
-              </a>
-            </td>
+              </a> 
+            </td>-->
           </tr>
         </tbody>
       </table>
