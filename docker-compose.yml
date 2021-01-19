@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   nginx:
@@ -55,7 +55,7 @@ volumes:
   redisdata:
     driver: local
   mysqldata:
-     driver: local
+    driver: local
 
 networks:
   app-network:

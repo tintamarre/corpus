@@ -24,17 +24,14 @@ export default {
   // props: ['page_url'],
   // mixins: [ GetDataMixin ],
 
-  mounted() {
-  },
+  mounted() {},
   data() {
     return {
-
       percent: 0,
       scrollEvent: null,
       progressStartMarker: null,
       progressEndMarker: null,
-
-    }
-  }
-}
+    };
+  },
+};
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <img src="/storage/legaltech-animate.svg" alt="loading">
+    <img src="/storage/legaltech-animate.svg" alt="loading" />
     <div>
       <em>loading... <spinner /></em>
     </div>

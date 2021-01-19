@@ -51,8 +51,8 @@
             <td>
               <em>{{ item.role }}</em>
             </td>
-
-            <!-- <td>
+            <!-- 
+              <td>
                <a
                 href="#"
                 v-tooltip:top="__('app.edit')"
@@ -68,9 +68,7 @@
   </div>
 </template>
 
-  <style>
-</style>
-
+ 
   <script>
 import GetDataMixin from "../GetDataMixin";
 

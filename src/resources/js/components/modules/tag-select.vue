@@ -108,11 +108,7 @@ export default {
       // this.$emit('add-new-segment-tag', tags);
       // POST to segment_tag this.$emit('add-new-segment-tag', tags)
       this.submitPost();
-      this.emitReloadDataEvent();
-      // UGLY FIX to wait for posting to complete
-      setTimeout(() => {
-        this.emitReloadDataEvent();
-      }, 1000);
+      // this.emitReloadDataEvent();
     },
   },
 };

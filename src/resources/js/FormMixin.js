@@ -4,7 +4,7 @@ export default {
       edit: false,
       add_new: false,
       fields: {},
-      error: null,
+      error: {},
       errors: {},
       success: false,
       loaded: true,
@@ -23,8 +23,9 @@ export default {
     afterAction(response) {
       if(response.status == 200){
         this.response_payload = response.data;
-        this.$emit('reload-data');
         this.data_fetched = true;
+        this.$parent.$emit('reload-data');
+        console.log('reload data send from mixin');
       }
       // this.fields = {}; //Clear input fields.
       this.loaded = true;
@@ -34,6 +35,18 @@ export default {
         this.success = false;
       }, 1500);
     },
+    afterError(error) {
+      this.loaded = true;
+      console.log(error);
+      this.error = error;
+      // if (error.data.status === 422) {
+      //   this.errors = error.data.errors || {};
+      // }
+      // else {
+      //   this.error = error.data;
+      // }
+    },
+
     submitPatch() {
       if (this.loaded) {
         this.beforeAction();
@@ -41,13 +54,7 @@ export default {
         .then(response => {
           this.afterAction(response);
         }).catch(error => {
-          this.loaded = true;
-          if (error.response.status === 422) {
-            this.errors = error.response.data.errors || {};
-          }
-          else {
-            this.error = error.response.data;
-          }
+          this.afterError(error);
         });
       }
     },
@@ -58,13 +65,7 @@ export default {
         .then(response => {
           this.afterAction(response);
         }).catch(error => {
-          this.loaded = true;
-          if (error.response.status === 422) {
-            this.errors = error.response.data.errors || {};
-          }
-          else {
-            this.error = error.response.data;
-          }
+          this.afterError(error);
         });
       }
     },
@@ -75,13 +76,7 @@ export default {
         .then(response => {
           this.afterAction(response);
         }).catch(error => {
-          this.loaded = true;
-          if (error.response.status === 422) {
-            this.errors = error.response.data.errors || {};
-          }
-          else {
-            this.error = error.response.data;
-          }
+          this.afterError(error);
         });
       }
     },

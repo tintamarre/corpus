@@ -6,65 +6,61 @@
         <!-- <label class="typo__label">
         <fa icon="tag"></fa>
       </label> -->
-      <multiselect
-      id="tag_select"
-      v-model="value"
-      :tag-placeholder="__('app.add_parent')"
-      :placeholder="__('app.add_parent')"
-      label="name"
-      track-by="name"
-      selectLabel="+"
-      deselectLabel="-"
-      :options="options"
-      :multiple="false"
-      :loading="isLoading"
-      :taggable="false"
-      class="small"
-      >
+        <multiselect
+          id="tag_select"
+          v-model="value"
+          :tag-placeholder="__('app.add_parent')"
+          :placeholder="__('app.add_parent')"
+          label="name"
+          track-by="name"
+          selectLabel="+"
+          deselectLabel="-"
+          :options="options"
+          :multiple="false"
+          :loading="isLoading"
+          :taggable="false"
+          class="small"
+        >
+        </multiselect>
+      </div>
 
-    </multiselect>
+      <div class="pull-right">
+        <button
+          type="button"
+          name="close"
+          class="btn btn-sm small btn-secondary"
+          @click="$emit('close-add-parent')"
+        >
+          <fa icon="times"></fa> {{ __("app.cancel") }}
+        </button>
+
+        <button
+          type="button"
+          name="addTag"
+          @click="addTag"
+          class="btn btn-sm small btn-success"
+        >
+          <fa icon="tag"></fa>
+          {{ __("app.insert") }}
+        </button>
+      </div>
+    </div>
   </div>
-
-<div class="pull-right">
-
-
-  <button
-  type="button"
-  name="close"
-  class="btn btn-sm small btn-secondary"
-  @click="$emit('close-add-parent')">
-  <fa icon="times"></fa> {{ __('app.cancel') }}
-</button>
-
-  <button
-  type="button"
-  name="addTag"
-  @click="addTag"
-  class="btn btn-sm small btn-success">
-  <fa icon="tag"></fa>
-  {{ __('app.insert') }}
-</button>
-</div>
-</div>
-</div>
-
-
-
 </template>
 
 <script>
-import Multiselect from 'vue-multiselect';
-import FormMixin from '../../FormMixin';
+import Multiselect from "vue-multiselect";
+import FormMixin from "../../FormMixin";
 
 export default {
-  props: ['tag'],
+  props: ["tag"],
 
   components: { Multiselect },
-  mixins: [ FormMixin ],
+  mixins: [FormMixin],
   mounted() {
     this.fetchTagsData(this.tag.links.api_resources_parent_tags);
   },
-  data () {
+  data() {
     return {
       page_url: null,
       value: [],
@@ -73,22 +69,24 @@ export default {
       errors: {},
       success: false,
       loaded: true,
-      action: '',
+      action: "",
       isLoading: false,
-    }
+    };
   },
   methods: {
     fetchTagsData(page_url) {
-      this.isLoading = true
-      axios.get(page_url)
-      .then((response) =>{
-        if(response.status == 200){
-          this.options = response.data.data;
-          this.isLoading = false;
-        }
-      }).catch(err=>{
-        console.log(err)
-      });
+      this.isLoading = true;
+      axios
+        .get(page_url)
+        .then((response) => {
+          if (response.status == 200) {
+            this.options = response.data.data;
+            this.isLoading = false;
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
     addTag() {
       const tag = {
@@ -98,13 +96,12 @@ export default {
       this.action = this.tag.links.api_update;
       this.fields = tag;
       this.submitPatch();
-      this.$emit('close-add-parent');
-      this.$emit('reload-data');
+      this.$emit("close-add-parent");
+      this.$emit("reload-data");
       window.location.reload(false);
-    }
-  }
-
-}
+    },
+  },
+};
 </script>
 
 
@@ -123,15 +120,15 @@ export default {
 }
 
 .multiselect__tag {
-  background    : #428BCA;
+  background: #428bca;
 }
 
 .multiselect__tag-icon:hover {
-  background : #428BCA;
+  background: #428bca;
 }
 
 .multiselect__tag-icon:focus:after,
 .multiselect__tag-icon:hover:after {
-  color : #428BCA;
+  color: #428bca;
 }
 </style>
