@@ -25,7 +25,6 @@ export default {
         this.response_payload = response.data;
         this.data_fetched = true;
         this.$parent.$emit('reload-data');
-        console.log('reload data send from mixin');
       }
       // this.fields = {}; //Clear input fields.
       this.loaded = true;
@@ -38,7 +37,7 @@ export default {
     afterError(error) {
       this.loaded = true;
       console.log(error);
-      this.error = error;
+      // this.error = error;
       // if (error.data.status === 422) {
       //   this.errors = error.data.errors || {};
       // }

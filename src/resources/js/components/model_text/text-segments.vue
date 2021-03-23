@@ -386,7 +386,7 @@ export default {
       this.fields = tag.snippet;
       this.submitDelete();
       this.segment.tags.splice(index, 1);
-      this.$emit("reload-data");
+      // this.$emit("reload-data");
     },
     wrapSnippet(snippet_start, snippet_end) {
       this.snippet_start = snippet_start;
@@ -406,7 +406,7 @@ export default {
       this.confDeleteSegment = true;
       this.fields = segment;
       this.submitDelete();
-      this.$emit("reload-data");
+      // this.$emit("reload-data");
     },
     addNewSegmentTag(tags) {
       console.log(tags);

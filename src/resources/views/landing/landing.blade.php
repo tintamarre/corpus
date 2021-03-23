@@ -9,20 +9,15 @@
                     {{ config('app.name', '') }}
                 </div>
 
-
-
                 <div class="card-body">
                     <div class="row">
 
                         <div
                             class="text-justify col-md-8 offset-md-2">
-                            <h1 class="display-4">
-                                {{ config('app.name', '') }}
-                            </h1>
 
-                            <p class="lead">
-                                In order to simplify and facilitate a
-                                methodology for corpus analysis (case
+                            <p>
+                                In order to facilitate qualitative
+                                data analysis (case
                                 law, interview, focus groups, press
                                 articles, etc.), Corpus offers a
                                 service that is both simple and
@@ -30,17 +25,21 @@
                                 qualitative methodology by
                                 <strong>ULiège</strong>.
                             </p>
+                            <p>
+                                <div class="text-center">
+                                    <img src="{{ asset('storage/corpus-workflow.png') }}"
+                                        width="550px"
+                                        alt="corpus workflow">
+                                </div>
+                            </p>
 
-                            <div class="text-center">
-                                <img src="{{ asset('storage/corpus-workflow.png') }}"
-                                    width="400px"
-                                    alt="corpus workflow">
-                            </div>
-
-                            <p class="lead">
+                            <p>
                                 Corpus is developed by the University
                                 of Liège and licensed under
                                 <strong>GPLv3</strong>.
+                            </p>
+
+                            <p>
                                 Code source is available at
                                 <strong>GitHub</strong> and
                                 everybody is welcome to contribute.
@@ -87,7 +86,11 @@
                         <br />
                         Project by <a
                             href="{{ config('core_settings.lltl_url') }}"
-                            alt=""><em>{{ config('core_settings.project_name') }}</em></a>
+                            alt=""><em>{{ config('core_settings.project_name') }}</em></a>,
+                        <a href=http://labos.ulg.ac.be/cris/" alt=""
+                            target="_blank">CRIS</a> and <a
+                            href="https://www.spiral.uliege.be/"
+                            alt="" target="_blank">Spiral</a>
                         from <a
                             href="{{ config('core_settings.promotor_url') }}"
                             alt="">{{ config('core_settings.promotor_name') }}</a>
