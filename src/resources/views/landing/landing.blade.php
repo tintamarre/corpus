@@ -86,11 +86,14 @@
                         <br />
                         Project by <a
                             href="{{ config('core_settings.lltl_url') }}"
-                            alt=""><em>{{ config('core_settings.project_name') }}</em></a>,
-                        <a href=http://labos.ulg.ac.be/cris/" alt=""
-                            target="_blank">CRIS</a> and <a
-                            href="https://www.spiral.uliege.be/"
-                            alt="" target="_blank">Spiral</a>
+                            alt="LLTL ULiège" target="_blank">
+                            <em>{{ config('core_settings.project_name') }}</em>
+                        </a>,
+                        <a href="http://labos.ulg.ac.be/cris/"
+                            alt="Cris ULiège" target="_blank">CRIS</a>
+                        and <a href="https://www.spiral.uliege.be/"
+                            alt="Spiral ULiège"
+                            target="_blank">Spiral</a>
                         from <a
                             href="{{ config('core_settings.promotor_url') }}"
                             alt="">{{ config('core_settings.promotor_name') }}</a>

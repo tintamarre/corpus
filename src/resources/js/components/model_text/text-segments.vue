@@ -177,7 +177,7 @@
       </div>
       <div class="col-sm-2 col-md-2 col-lg-2">
         <div class="small">
-          <button
+          <!-- <button
             v-if="!editSegment"
             @click="editSegment = !editSegment"
             class="btn btn-link btn-sm"
@@ -186,7 +186,7 @@
             "
           >
             <fa icon="edit"></fa>
-          </button>
+          </button> -->
 
           <button
             v-if="!confDeleteSegment"

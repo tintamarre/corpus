@@ -6,6 +6,16 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class CreateText extends FormRequest
 {
+    public function validationData()
+    {
+        $input = parent::all();
+
+        $input['abstract'] = strip_tags($input['abstract']);
+
+        return $input;
+    }
+
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -25,8 +35,7 @@ class CreateText extends FormRequest
     {
         return [
           'name' => 'required',
-          'abstract' => 'required|max:1000',
-          'uploader_id' => 'required',
-      ];
+          'abstract' => 'max:1000'
+           ];
     }
 }
