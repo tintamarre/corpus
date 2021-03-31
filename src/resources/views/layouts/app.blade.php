@@ -186,7 +186,7 @@
 
     <script>
         window._translations = {
-            !!cache('translations') !!
+            {!! cache('translations') !!}
         };
 
     </script>
