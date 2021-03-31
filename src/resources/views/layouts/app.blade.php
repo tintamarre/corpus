@@ -184,12 +184,9 @@
 
     </div>
 
-    <script>
-        window._translations = {
-            {!! cache('translations') !!}
-        };
-
-    </script>
+ <script>
+  window._translations = {!! cache('translations') !!};
+</script>
 
 </body>
 
