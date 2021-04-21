@@ -36,7 +36,7 @@ class SegmentTag extends BaseModel
         self::deleting(function ($segment_tag) {
             $tag = $segment_tag->tag()->first();
 
-            // 1 because it's excuted before calling delete on the model
+            // == 1 because it's excuted before calling delete on the model
             if ($tag->segment_tag()->count() == 1 && $tag->children()->count() == 0) {
                 $tag->delete();
             }
