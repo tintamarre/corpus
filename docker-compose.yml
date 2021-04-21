@@ -13,6 +13,7 @@ services:
       - php
     networks:
       - app-network
+    restart: always
 
   mysql:
     image: mariadb:10.5
@@ -31,6 +32,7 @@ services:
       - mysqldata:/var/lib/mysql
     networks:
       - app-network
+    restart: always
 
   php:
     build:
@@ -40,6 +42,7 @@ services:
       - ./src:/var/www:delegated
     networks:
       - app-network
+    restart: always
 
   redis:
     image: redis:6.0-alpine

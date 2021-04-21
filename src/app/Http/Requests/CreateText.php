@@ -15,7 +15,6 @@ class CreateText extends FormRequest
         return $input;
     }
 
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -35,7 +34,7 @@ class CreateText extends FormRequest
     {
         return [
           'name' => 'required',
-          'abstract' => 'max:1000'
+          'abstract' => 'max:1000',
            ];
     }
 }
