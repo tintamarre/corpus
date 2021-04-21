@@ -27,12 +27,11 @@ class Tag extends BaseModel
     }
 
     /**
-    * Get the parent.
+    * Get the parents.
     */
-    public function parent()
+    public function parents()
     {
-        return $this->belongsTo(self::class, 'tag_id');
-        // return $this->belongsTo('App\Models\Tag');
+        return $this->belongsToMany(self::class, 'tags_child_parent', 'child_id', 'parent_id');
     }
 
     /**
@@ -40,7 +39,7 @@ class Tag extends BaseModel
     */
     public function children()
     {
-        return $this->hasMany(self::class)->orderBy('name');
+        return $this->belongsToMany(self::class, 'tags_child_parent', 'parent_id', 'child_id');
     }
 
     public function segment_tag()
