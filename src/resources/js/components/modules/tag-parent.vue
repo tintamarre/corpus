@@ -4,8 +4,8 @@
     <div class="col">
       <div>
         <!-- <label class="typo__label">
-        <fa icon="tag"></fa>
-      </label> -->
+          <fa icon="tag"></fa>
+        </label> -->
         <multiselect
           id="tag_select"
           v-model="value"
@@ -16,7 +16,7 @@
           selectLabel="+"
           deselectLabel="-"
           :options="options"
-          :multiple="false"
+          :multiple="true"
           :loading="isLoading"
           :taggable="false"
           class="small"
@@ -90,8 +90,8 @@ export default {
     },
     addTag() {
       const tag = {
-        id: this.tag.id,
-        tag_id: this.value.id,
+        child_id: this.tag.id,
+        parents_id: this.value,
       };
       this.action = this.tag.links.api_update;
       this.fields = tag;

@@ -28,9 +28,10 @@ class ApiCollectionResourcesController extends Controller
 
     public function parent_tags(Collection $collection, Tag $tag)
     {
+        // Tags for the multiselect menu.
         return TagSelectResource::collection($collection->tags()
-        ->where('id', '!=', $tag->id)
-        ->whereNotIn('id', $tag->children->pluck('id'))
+        ->where('id', '!=', $tag->id) // Can't be self
+        ->whereNotIn('id', $tag->children->pluck('id')) // Can't be both children and selectable to be parent
         ->get());
     }
 }

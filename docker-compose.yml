@@ -53,6 +53,14 @@ services:
       - app-network
     restart: on-failure:3
 
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8081:8080
+  #   networks:
+  #     - app-network
+
 volumes:
   redisdata:
     driver: local

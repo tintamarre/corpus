@@ -30,6 +30,7 @@ class TagResource extends JsonResource
           }
       ),
       'parent' => new TagRelativeResource($this->parent),
+      // 'parents' => TagRelativeResource($this->parents),
       'children' => TagRelativeResource::collection($this->children),
       'datetimes' => $this->datetimes,
       'links'         => [
