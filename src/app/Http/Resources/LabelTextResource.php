@@ -16,8 +16,8 @@ class LabelTextResource extends JsonResource
     {
         return [
       'type'          => 'labels_texts',
-      'id'            => $this->id,
-      'label_id'      => $this->label->id,
+      'id'            => (int)$this->id,
+      'label_id'      => (int)$this->label->id,
       'name'          => (string)$this->label->name,
       'format'           => (string)$this->label->format,
       'default_description' => (string)$this->label->default_description,

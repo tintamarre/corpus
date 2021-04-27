@@ -8,25 +8,28 @@
               <strong>{{ __("app.parents") }}</strong>
             </span>
           </div>
-          <div class="col-sm-9 col-md-9 col-lg-9">
-            <div v-if="tag.parent">
-              <a
-                class="btn btn-primary btn-sm small"
-                :style="colorTag(tag.parent.color)"
-                :href="tag.parent.links.self"
-              >
-                <fa icon="tag"></fa> {{ tag.parent.name }}
-              </a>
 
-              <button
-                type="button"
-                name="button"
-                class="btn btn-sm btn-link"
-                @click="deleteParent"
-              >
-                <fa icon="trash"></fa>
-                {{ __("app.delete") }} {{ __("app.parents") }}
-              </button>
+          <div class="col-sm-9 col-md-9 col-lg-9">
+            <div v-if="tag.parents.length != 0">
+              <span v-for="parent in tag.parents">
+                <a
+                  class="btn btn-primary btn-sm small"
+                  :style="colorTag(parent.color)"
+                  :href="parent.links.self"
+                >
+                  <fa icon="tag"></fa> {{ parent.name }}
+                </a>
+
+                <button
+                  type="button"
+                  name="button"
+                  class="btn btn-sm btn-link"
+                  @click="deleteParent"
+                >
+                  <fa icon="trash"></fa>
+                  {{ __("app.delete") }} {{ __("app.parents") }}
+                </button>
+              </span>
             </div>
 
             <div v-else>
@@ -37,7 +40,8 @@
                 class="btn btn-sm btn-link"
                 @click="addParent = !addParent"
               >
-                <fa icon="plus"></fa> {{ __("app.add") }} {{ __("app.parent") }}
+                <fa icon="plus"></fa> {{ __("app.add") }}
+                {{ __("app.parents") }}
               </button>
 
               <div v-if="addParent">

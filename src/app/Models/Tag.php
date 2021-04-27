@@ -27,7 +27,7 @@ class Tag extends BaseModel
     }
 
     /**
-    * Get the parents.
+    * The parents tags that own to the tag.
     */
     public function parents()
     {
@@ -35,7 +35,7 @@ class Tag extends BaseModel
     }
 
     /**
-    * The tags that belong to the tag.
+    * The children tags that belong to the tag.
     */
     public function children()
     {

@@ -17,7 +17,7 @@ class CollectionResource extends JsonResource
         {
       return [
         'type'          => (string)$this->type,
-        'id'            => $this->id,
+        'id'            => (int)$this->id,
         'slug'            => (string)$this->slug,
         'name' => (string)$this->name,
         'description' => (string)$this->description,

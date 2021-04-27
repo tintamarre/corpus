@@ -44,6 +44,7 @@ class ApiTagController extends Controller
             $tag->fill($request->all());
             $tag->save();
         }
+
         return response(null, Response::HTTP_OK);
     }
 

@@ -16,41 +16,42 @@ class ApiTagGraphController extends Controller
     */
     public function data(Collection $collection, Tag $tag)
     {
-        $tag = $tag->load(['parent', 'children']);
+        // $tag = $tag->load(['parent', 'children']);
+        $tag = $tag->load(['children']);
 
-        $parent = $tag->parent()->first();
+        // $parent = $tag->parent()->first();
 
         $edges = collect();
         $nodes = collect();
 
-        if (isset($parent)) {
-            $nodes = $nodes->concat(
-                [
-          [
-            'id' => $parent->id,
-            'label' => $parent->name,
-            'shape' => 'box',
-            'color' => $parent->color,
-            'font' => [
-              'color' => 'white',
-              'border-color' => $parent->color,
-              'size' => 20,
+        // if (isset($parent)) {
+        //     $nodes = $nodes->concat(
+        //         [
+        //   [
+        //     'id' => $parent->id,
+        //     'label' => $parent->name,
+        //     'shape' => 'box',
+        //     'color' => $parent->color,
+        //     'font' => [
+        //       'color' => 'white',
+        //       'border-color' => $parent->color,
+        //       'size' => 20,
 
-            ],
-          ],
-        ]
-            );
+        //     ],
+        //   ],
+        // ]
+        //     );
 
-            $edges = $edges->concat(
-                [
-          [
-            'from' => $parent->id,
-            'to' => $tag->id,
-            'arrows' => 'to',
-          ],
-        ]
-            );
-        }
+        //     $edges = $edges->concat(
+        //         [
+        //   [
+        //     'from' => $parent->id,
+        //     'to' => $tag->id,
+        //     'arrows' => 'to',
+        //   ],
+        // ]
+        //     );
+        // }
 
         $children = $tag->children()->get()->map(function ($child) {
             return [

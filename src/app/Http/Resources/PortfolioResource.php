@@ -17,7 +17,7 @@ class PortfolioResource extends JsonResource
         {
       return [
         'type'          => 'collections',
-        'id'            => $this->id,
+        'id'            => (int)$this->id,
         'slug'            => (string)$this->slug,
         'name' => (string)mb_strimwidth($this->name, 0, 45, "..."),
         'description' => (string)mb_strimwidth($this->description, 0, 144, "..."),
