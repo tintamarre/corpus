@@ -36,10 +36,8 @@ class ApiTagController extends Controller
 
     public function update(Collection $collection, Tag $tag, Request $request)
     {
-        if ($request->parents_id_array) {
-            $this->add_parents($request->all());
-        } elseif ($request->detete_parents) {
-            $tag->parents()->delete();
+        if ($request->parents) {
+            $this->add_parents($tag, $request);
         } else {
             $tag->fill($request->all());
             $tag->save();
@@ -48,9 +46,10 @@ class ApiTagController extends Controller
         return response(null, Response::HTTP_OK);
     }
 
-    private function add_parents($parents)
+    private function add_parents(Tag $tag, $request)
     {
-        return $parents->parents_id_array->pluck('id');
-        // $parents->child_id;
+        $parents = collect($request->parents);
+
+        $tag->parents()->sync($parents->pluck('id'));
     }
 }

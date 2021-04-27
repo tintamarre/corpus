@@ -10,7 +10,7 @@
           </div>
 
           <div class="col-sm-9 col-md-9 col-lg-9">
-            <div v-if="tag.parents.length != 0">
+            <span v-if="tag.parents.length != 0">
               <span v-for="parent in tag.parents">
                 <a
                   class="btn btn-primary btn-sm small"
@@ -19,44 +19,29 @@
                 >
                   <fa icon="tag"></fa> {{ parent.name }}
                 </a>
-
-                <button
-                  type="button"
-                  name="button"
-                  class="btn btn-sm btn-link"
-                  @click="deleteParent"
-                >
-                  <fa icon="trash"></fa>
-                  {{ __("app.delete") }} {{ __("app.parents") }}
-                </button>
               </span>
-            </div>
+            </span>
 
-            <div v-else>
-              <button
-                v-if="!addParent"
-                type="button"
-                name="button"
-                class="btn btn-sm btn-link"
-                @click="addParent = !addParent"
-              >
-                <fa icon="plus"></fa> {{ __("app.add") }}
-                {{ __("app.parents") }}
-              </button>
+            <button
+              v-if="!editParents"
+              type="button"
+              name="button"
+              class="btn btn-sm btn-link"
+              @click="editParents = !editParents"
+            >
+              <fa icon="edit"></fa> {{ __("app.edit") }}
+              {{ __("app.parents") }}
+            </button>
 
-              <div v-if="addParent">
-                <label for="parent_tag">
-                  {{ __("app.parent_tag") }}
-                </label>
-                <tag-parent
-                  name="parent_tag"
-                  :value="tag.parent"
-                  v-model="tag.parent"
-                  :tag="tag"
-                  v-on="$listeners"
-                  @close-add-parent="addParent = !addParent"
-                />
-              </div>
+            <div v-if="editParents">
+              <tag-parents
+                name="parent_tag"
+                :value="tag.parents"
+                v-model="tag.parents"
+                :tag="tag"
+                v-on="$listeners"
+                @close-add-parent="editParents = !editParents"
+              />
             </div>
           </div>
         </div>
@@ -231,7 +216,7 @@ export default {
     return {
       action: null,
       editTag: false,
-      addParent: false,
+      editParents: false,
     };
   },
 
@@ -261,17 +246,17 @@ export default {
       // this.$emit('reload-data');
     },
 
-    deleteParent() {
-      const tag = {
-        id: this.tag.id,
-        detete_parents: true,
-      };
-      this.action = this.tag.links.api_update;
-      this.fields = tag;
-      this.submitPatch();
-      this.tag.parent = null;
-      // this.$emit('reload-data');
-    },
+    // deleteParent() {
+    //   const tag = {
+    //     id: this.tag.id,
+    //     detete_parents: true,
+    //   };
+    //   this.action = this.tag.links.api_update;
+    //   this.fields = tag;
+    //   this.submitPatch();
+    //   this.tag.parent = null;
+    //   // this.$emit('reload-data');
+    // },
 
     changeColor(color) {
       this.tag.color = color;

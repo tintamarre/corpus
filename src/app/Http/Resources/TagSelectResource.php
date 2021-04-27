@@ -17,11 +17,7 @@ class TagSelectResource extends JsonResource
         return [
       'id'   => (int)$this->id,
       'name' => (string)$this->name,
-      // 'segments_count' => $this->segments_count,
-      // 'parents' => $this->parents,
-      // 'children' => $this->children,
-    ];
-
-        // return parent::toArray($request);
+      'color' => (string)$this->color,
+     ];
     }
 }
