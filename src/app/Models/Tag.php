@@ -31,7 +31,7 @@ class Tag extends BaseModel
     */
     public function parents()
     {
-        return $this->belongsToMany(self::class, 'tags_child_parent', 'child_id', 'parent_id');
+        return $this->belongsToMany(self::class, 'tags_child_parent', 'child_id', 'parent_id')->withTimestamps();
     }
 
     /**
@@ -39,7 +39,7 @@ class Tag extends BaseModel
     */
     public function children()
     {
-        return $this->belongsToMany(self::class, 'tags_child_parent', 'parent_id', 'child_id');
+        return $this->belongsToMany(self::class, 'tags_child_parent', 'parent_id', 'child_id')->withTimestamps();
     }
 
     public function segment_tag()

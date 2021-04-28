@@ -51,7 +51,6 @@ class ApiTagGraphController extends Controller
             );
         }
 
-    
         // Create children nodes
         $children = $tag->children()->get()->map(function ($child) {
             return [
@@ -66,7 +65,6 @@ class ApiTagGraphController extends Controller
           ],
         ];
         });
-
 
         // Create children edges
         foreach ($children as $child) {
@@ -98,7 +96,6 @@ class ApiTagGraphController extends Controller
           ],
         ]
         );
-
 
         return response()->json([
       'data' => [
