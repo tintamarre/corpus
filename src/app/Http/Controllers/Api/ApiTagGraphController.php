@@ -43,7 +43,7 @@ class ApiTagGraphController extends Controller
                 'from' => $parent['id'],
                 'to' => $tag->id,
                 'arrows' => 'to',
-                'dashes' => true,
+                'dashes' => false,
               ],
           ]
             );

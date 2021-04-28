@@ -115,6 +115,7 @@ export default {
       const tag = {
         child_id: this.tag.id,
         parents: this.value,
+        edit_parents: true,
       };
       this.action = this.tag.links.api_update;
       this.fields = tag;

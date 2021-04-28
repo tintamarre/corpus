@@ -36,7 +36,7 @@ class ApiTagController extends Controller
 
     public function update(Collection $collection, Tag $tag, Request $request)
     {
-        if ($request->parents) {
+        if ($request->edit_parents) {
             $this->add_parents($tag, $request);
         } else {
             $tag->fill($request->all());
@@ -50,6 +50,10 @@ class ApiTagController extends Controller
     {
         $parents = collect($request->parents);
 
-        $tag->parents()->sync($parents->pluck('id'));
+        if (empty($parents)) {
+            $tag->parents()->detach();
+        } else {
+            $tag->parents()->sync($parents->pluck('id'));
+        }
     }
 }
