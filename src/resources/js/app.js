@@ -41,6 +41,8 @@ Vue.directive('tooltip', function(el, binding){
 // });
 
 
+// Source https://dev.to/4unkur/how-to-use-laravel-translations-in-js-vue-files-ia
+// docker-compose exec php php artisan cache:clear to refresh translation
 Vue.mixin(require('./trans'))
 
 const app = new Vue({

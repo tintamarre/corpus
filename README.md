@@ -27,13 +27,18 @@ GPLv3 : <https://raw.githubusercontent.com/tintamarre/corpus/main/LICENSE>
 
 ## Testing
 
-Launch
+### Launch
 ```bash
 git clone https://github.com/tintamarre/corpus
 cd ./corpus/src
 cp .env.example .env
 edit .env
 docker-compose up
+```
+
+### Refresh translations
+```bash
+docker-compose exec php php artisan cache:clear
 ```
 
 ## Deploying

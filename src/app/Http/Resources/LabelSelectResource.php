@@ -15,7 +15,7 @@ class LabelSelectResource extends JsonResource
     public function toArray($request)
     {
         return [
-      'name'          => (string)$this['name'],
+      'name'   => (string)$this['name'],
       'format' => (string)$this['format'],
       'default_description' => (string)$this['default_description'],
     ];

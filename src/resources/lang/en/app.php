@@ -56,9 +56,11 @@ return [
   'done' => 'Done!',
   'tagged_by' => 'tagged by',
 
-  'add_parent' => 'Add parent',
+  'add_parents' => 'Add parents',
 
   'parent' => 'Parent',
+  'parents' => 'Parents',
+
 
   'create_new_text' => "Create new text",
   'okay' => 'Okay !',

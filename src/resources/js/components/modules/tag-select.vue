@@ -22,6 +22,31 @@
           @tag="newTag"
           class="small"
         >
+          <template slot="option" slot-scope="props">
+            <span
+              class="btn btn-sm btn-primary"
+              :style="{
+                backgroundColor: props.option.color,
+                borderColor: props.option.color,
+              }"
+            >
+              <fa icon="tag"></fa>
+              {{ props.option.name }}
+            </span>
+          </template>
+
+          <template slot="tag" slot-scope="props">
+            <span
+              class="btn btn-sm btn-primary"
+              :style="{
+                backgroundColor: props.option.color,
+                borderColor: props.option.color,
+              }"
+            >
+              <fa icon="tag"></fa>
+              {{ props.option.name }}</span
+            >
+          </template>
         </multiselect>
       </div>
       <button

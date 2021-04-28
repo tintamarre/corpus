@@ -15,13 +15,9 @@ class TagSelectResource extends JsonResource
     public function toArray($request)
     {
         return [
-      'id'            => (int)$this->id,
+      'id'   => (int)$this->id,
       'name' => (string)$this->name,
-      // 'segments_count' => $this->segments_count,
-      // 'parent' => $this->parent,
-      // 'children' => $this->children,
-    ];
-
-        // return parent::toArray($request);
+      'color' => (string)$this->color,
+     ];
     }
 }

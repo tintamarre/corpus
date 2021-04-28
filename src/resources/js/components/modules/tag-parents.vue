@@ -3,24 +3,46 @@
   <div class="row">
     <div class="col">
       <div>
-        <!-- <label class="typo__label">
-        <fa icon="tag"></fa>
-      </label> -->
         <multiselect
           id="tag_select"
           v-model="value"
-          :tag-placeholder="__('app.add_parent')"
-          :placeholder="__('app.add_parent')"
+          :tag-placeholder="__('app.add_parents')"
+          :placeholder="__('app.add_parents')"
           label="name"
           track-by="name"
           selectLabel="+"
           deselectLabel="-"
           :options="options"
-          :multiple="false"
+          :multiple="true"
           :loading="isLoading"
           :taggable="false"
           class="small"
         >
+          <template slot="option" slot-scope="props">
+            <span
+              class="btn btn-sm btn-primary"
+              :style="{
+                backgroundColor: props.option.color,
+                borderColor: props.option.color,
+              }"
+            >
+              <fa icon="tag"></fa>
+              {{ props.option.name }}
+            </span>
+          </template>
+
+          <template slot="tag" slot-scope="props">
+            <span
+              class="btn btn-sm btn-primary"
+              :style="{
+                backgroundColor: props.option.color,
+                borderColor: props.option.color,
+              }"
+            >
+              <fa icon="tag"></fa>
+              {{ props.option.name }}</span
+            >
+          </template>
         </multiselect>
       </div>
 
@@ -36,8 +58,8 @@
 
         <button
           type="button"
-          name="addTag"
-          @click="addTag"
+          name="editParents"
+          @click="editParents"
           class="btn btn-sm small btn-success"
         >
           <fa icon="tag"></fa>
@@ -81,6 +103,7 @@ export default {
         .then((response) => {
           if (response.status == 200) {
             this.options = response.data.data;
+            this.value = this.tag.parents_value;
             this.isLoading = false;
           }
         })
@@ -88,10 +111,11 @@ export default {
           console.log(err);
         });
     },
-    addTag() {
+    editParents() {
       const tag = {
-        id: this.tag.id,
-        tag_id: this.value.id,
+        child_id: this.tag.id,
+        parents: this.value,
+        edit_parents: true,
       };
       this.action = this.tag.links.api_update;
       this.fields = tag;
@@ -108,7 +132,7 @@ export default {
 <!-- Add Multiselect CSS. Can be added as a static asset or inside a component. -->
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 
-<style>
+<style scoped>
 .multiselect__tags {
   min-height: 32px;
   display: block;

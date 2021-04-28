@@ -110,6 +110,7 @@ class Text extends BaseModel
             'id' => $tag->id,
             'name' => $tag->name,
             'occurrence' => $tag->occurrence,
+            // 'parents_count' => $tag->parents()->count(),
             'children_count' => $tag->children()->count(),
             'size' => round(
                 log(

@@ -29,7 +29,8 @@ class TagResource extends JsonResource
               return json_decode($this->snippets);
           }
       ),
-      'parent' => new TagRelativeResource($this->parent),
+      'parents_value' => TagSelectResource::collection($this->parents),
+      'parents' => TagRelativeResource::collection($this->parents),
       'children' => TagRelativeResource::collection($this->children),
       'datetimes' => $this->datetimes,
       'links'         => [

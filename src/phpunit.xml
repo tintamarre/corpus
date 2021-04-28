@@ -11,6 +11,10 @@
          processIsolation="false"
          stopOnFailure="false">
     <testsuites>
+            <testsuite name="DB">
+            <directory suffix="Test.php">./tests/DB</directory>
+        </testsuite>
+        
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
