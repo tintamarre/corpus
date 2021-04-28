@@ -20,7 +20,6 @@ class CreateTagsChildParentTable extends Migration
             $table->integer('child_id')->unsigned();
 
             $table->timestamps();
-            $table->softDeletes();
 
             $table->foreign('parent_id')->references('id')->on('tags');
             $table->foreign('child_id')->references('id')->on('tags');
