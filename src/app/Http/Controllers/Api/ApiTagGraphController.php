@@ -22,6 +22,7 @@ class ApiTagGraphController extends Controller
 
         $edges = collect();
 
+        // Create parents nodes
         $parents = $tag->parents()->get()->map(function ($parent) {
             return [
             'id' => $parent->id,
@@ -36,6 +37,7 @@ class ApiTagGraphController extends Controller
           ];
         });
 
+        // Create parents edges
         foreach ($parents as $parent) {
             $edges = $edges->concat(
                 [
@@ -49,18 +51,8 @@ class ApiTagGraphController extends Controller
             );
         }
 
-
-        //     $edges = $edges->concat(
-        //         [
-        //   [
-        //     'from' => $parent->id,
-        //     'to' => $tag->id,
-        //     'arrows' => 'to',
-        //   ],
-        // ]
-        //     );
-
-        // Children
+    
+        // Create children nodes
         $children = $tag->children()->get()->map(function ($child) {
             return [
         'id' => $child->id,
@@ -75,7 +67,22 @@ class ApiTagGraphController extends Controller
         ];
         });
 
-        // Tag
+
+        // Create children edges
+        foreach ($children as $child) {
+            $edges = $edges->concat(
+                [
+              [
+                'from' => $tag->id,
+                'to' => $child['id'],
+                'arrows' => 'to',
+                'dashes' => true,
+              ],
+          ]
+            );
+        }
+
+        // Merging every the 3 kind of nodes
         $nodes = $nodes->concat($parents)->concat($children)->concat(
             [
           [
@@ -92,18 +99,6 @@ class ApiTagGraphController extends Controller
         ]
         );
 
-        foreach ($children as $child) {
-            $edges = $edges->concat(
-                [
-                [
-                  'from' => $tag->id,
-                  'to' => $child['id'],
-                  'arrows' => 'to',
-                  'dashes' => true,
-                ],
-            ]
-            );
-        }
 
         return response()->json([
       'data' => [
