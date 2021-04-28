@@ -25,8 +25,10 @@
                 backgroundColor: props.option.color,
                 borderColor: props.option.color,
               }"
-              ><fa icon="tag"></fa> {{ props.option.name }}</span
             >
+              <fa icon="tag"></fa>
+              {{ props.option.name }}
+            </span>
           </template>
 
           <template slot="tag" slot-scope="props">

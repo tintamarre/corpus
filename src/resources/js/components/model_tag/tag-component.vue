@@ -16,7 +16,7 @@
 
         <hr v-if="fields.tagscloud.data.length != 0" />
 
-        <div class="row" v-if="fields.tagscloud.data.length != 0">
+        <div class="row">
           <div class="col-sm-2 col-md-2 col-lg-2 text-right">
             <span class="text-muted text-uppercase">
               <strong>{{ __("app.tagcloud") }}</strong>
