@@ -7,19 +7,22 @@ use App\Http\Requests\UpdateSegment;
 use App\Models\Collection;
 use App\Models\Segment;
 use App\Models\Text;
+use App\Traits\ReplaceTagTrait;
 use Illuminate\Http\Request;
 
 class CollectionSegmentsController extends Controller
 {
+    use ReplaceTagTrait;
+
     public function update(Collection $collection, Text $text, Segment $segment, UpdateSegment $request)
     {
+        $result = $this->replaceTags($segment, $request);
+
         $segment->content = $request->input('text');
         $segment->save();
 
-        // $segment->segment_tag()
-
-        flash(__('app.flash_updated', ['what' => __('app.segment')]));
-
+        flash(__('app.flash_updated', ['what' => ucfirst(__('app.segment'))]));
+        
         return redirect()->route('collection.texts.show', [$collection, $text]);
     }
 

@@ -11,8 +11,7 @@ $finder = PhpCsFixer\Finder::create()
         'node_modules',
         'resources',
     ])
-    ->notPath('server.php')
-;
+    ->notPath('server.php');
 
 return PhpCsFixer\Config::create()
     ->setFinder($finder)

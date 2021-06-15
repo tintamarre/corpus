@@ -41,7 +41,7 @@ Route::prefix('v1')->name('api.')->group(function () {
     # Users
     Route::apiResource('collection.segments', 'Api\ApiSegmentController')->only(['store', 'update', 'destroy'])->parameters([
     'collection' => 'collection:slug',
-    'segments' => 'segment', // Warning segment doesn't directly belong to collection
+    'segments' => 'segment:id', // Warning segment doesn't directly belong to collection
   ]);
 
     # Label Chart

@@ -27,6 +27,10 @@ GPLv3 : <https://raw.githubusercontent.com/tintamarre/corpus/main/LICENSE>
 
 ## Testing
 
+```bash
+docker-compose exec php vendor/bin/phpunit
+```
+
 ### Launch
 ```bash
 git clone https://github.com/tintamarre/corpus

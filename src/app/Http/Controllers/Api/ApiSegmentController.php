@@ -9,14 +9,10 @@ use Illuminate\Http\Response;
 
 class ApiSegmentController extends Controller
 {
-    public function __construct()
-    {
-    }
-
     public function destroy(Collection $collection, Segment $segment)
     {
         $segment->delete();
-        // return response()->json(['message' => 'A message.'], Response::HTTP_OK);
-        return response(null, Response::HTTP_OK);
+
+        return response()->json(['message' => 'Segment destroyed.'], Response::HTTP_OK);
     }
 }
