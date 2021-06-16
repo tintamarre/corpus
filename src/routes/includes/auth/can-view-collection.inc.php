@@ -1,9 +1,16 @@
 <?php
 
+# Collection Slug
+Route::get('/{collection}/codebook', 'Collection\CollectionCodebookController@collection')->name('collection_codebook');
+
+# Collection Text Slug
+Route::get('/{collection}/{text}/codebook', 'Collection\CollectionCodebookController@text')->name('collection_text_codebook');
+
 # Collection
 Route::resource('collection', 'Collection\CollectionController')->only(['show', 'edit', 'update'])->parameters([
   'collection' => 'collection:slug',
 ]);
+
 
 # Text
 Route::resource('collection.texts', 'Collection\CollectionTextsController')

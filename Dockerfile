@@ -2,13 +2,18 @@ FROM php:7.4-fpm-alpine
 
 WORKDIR /var/www
 
-RUN docker-php-ext-install pdo pdo_mysql
+RUN apk add --no-cache zip libzip-dev
+RUN docker-php-ext-configure zip
+
+RUN docker-php-ext-install pdo pdo_mysql zip
 # RUN apt-get update && apt-get install -y \
 #         libfreetype6-dev \
 #         libjpeg62-turbo-dev \
 #         libpng-dev \
 #     && docker-php-ext-configure gd --with-freetype --with-jpeg \
 #     && docker-php-ext-install -j$(nproc) gd
+
+
 
 RUN apk --no-cache add pcre-dev ${PHPIZE_DEPS}
 RUN pecl install redis \

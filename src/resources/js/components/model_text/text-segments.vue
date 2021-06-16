@@ -205,7 +205,8 @@
             class="btn btn-link btn-sm"
             v-tooltip:top="__('app.delete') + ' ' + __('app.segment')"
           >
-            <fa icon="times"></fa> {{ __("app.cancel") }}
+            <fa icon="times"></fa>
+            {{ __("app.cancel") }}
           </button>
 
           <button
@@ -228,7 +229,8 @@
             @click="addSegment = !addSegment"
             class="btn btn-link btn-sm"
           >
-            <fa icon="times"></fa> {{ __("app.cancel") }}
+            <fa icon="times"></fa>
+            {{ __("app.cancel") }}
           </button>
         </div>
       </div>
