@@ -19,7 +19,6 @@ Route::group(['middleware' => 'web'], function () {
     require base_path('routes/includes/public.inc.php');
 
     Route::group(['middleware' => 'guest'], function () {
-        require base_path('routes/includes/documentation.inc.php');
     });
 
     Route::group(['middleware' => ['auth', 'verified']], function () {
