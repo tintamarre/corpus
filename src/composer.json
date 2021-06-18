@@ -18,7 +18,8 @@
         "laravelcollective/html": "^6.0",
         "phpoffice/phpword": "^0.18.2",
         "spatie/laravel-sluggable": "2.4",
-        "teamtnt/laravel-scout-tntsearch-driver": "^8.1"
+        "teamtnt/laravel-scout-tntsearch-driver": "^8.1",
+        "yooper/php-text-analysis": "^1.7"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

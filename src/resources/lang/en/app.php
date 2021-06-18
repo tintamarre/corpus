@@ -77,6 +77,8 @@ return [
 
   'caution_when_editing_a_segment' => 'Caution when editing a segment. If you edit a segment that had been already tagged. Some tags might desappeard',
 
+ 'download' => 'Download',
+
   'children' => 'Children',
   'expand' => 'Expand',
   'reduce' => 'Reduce',

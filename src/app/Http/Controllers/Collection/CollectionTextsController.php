@@ -16,13 +16,10 @@ class CollectionTextsController extends Controller
     * @return void
     */
     public function __construct(
-
     ) {
     }
     /**
-    * Show the view for a Collection.
-    *
-    * @return Response
+    * Show the view for a Text
     */
     public function show(Collection $collection, Text $text)
     {

@@ -101,10 +101,29 @@
 
 </div>
 
+<h2>
+  {{ __('app.analysis') }}
+</h2>
+
+<div class="table-responsive-sm">
+  <table class="table table-sm">
+    <tr>
+      <td>Codebook</td>      
+      <td class="text-right">
+        <a :href="fields.links.self + '/codebook'" class="btn btn-sm btn-primary">
+         {{ __('app.download') }} <fa icon="download"></fa>
+        </a>
+      </td>
+  </tr>
+</table>
+
+</div>
 
 <collection-users
 :users="fields.relationships.users.data"
 />
+
+
 
 </div>
 
@@ -118,28 +137,25 @@
 </template>
 
 <style scoped>
-
 </style>
 
 <script>
-import GetDataMixin from '../../GetDataMixin';
+import GetDataMixin from "../../GetDataMixin";
 
 export default {
-  props: ['page_url'],
-  mixins: [ GetDataMixin ],
-  computed:{
-  },
-  mounted() {
-  },
+  props: ["page_url"],
+  mixins: [GetDataMixin],
+  computed: {},
+  mounted() {},
   methods: {
     resetCached() {
       // set cached to null;
       // refresh;
-    }
-  }
+    },
+  },
   // data() {
   //   return {
   //   }
   // }
-}
+};
 </script>
