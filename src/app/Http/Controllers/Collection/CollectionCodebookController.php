@@ -23,15 +23,18 @@ class CollectionCodebookController extends Controller
 
     public function collection(Collection $collection)
     {
+        // To allow `&` in variable
+        \PhpOffice\PhpWord\Settings::setOutputEscapingEnabled(true);
+
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         $fontStyle = new \PhpOffice\PhpWord\Style\Font();
         $fontStyle->setBold(true);
-        $fontStyle->setName('Tahoma');
+        $fontStyle->setName('Open Sans');
         $fontStyle->setSize(10);
 
         $properties = $phpWord->getDocInfo();
         $properties->setCreator('Corpus');
-        $properties->setCompany('Corpus');
+        $properties->setCompany('Corpus from ULiège');
         $properties->setTitle('Corpus');
         $properties->setDescription('Corpus export');
         
@@ -44,20 +47,20 @@ class CollectionCodebookController extends Controller
         $fontStyle12 = ['spaceAfter' => 60, 'size' => 12];
         $fontStyle10 = ['size' => 10];
 
-        $phpWord->addTitleStyle(null, ['size' => 22, 'bold' => true]);
-        $phpWord->addTitleStyle(1, ['size' => 20, 'color' => '#0171c5', 'bold' => true]);
-        $phpWord->addTitleStyle(2, ['size' => 16, 'color' => '#666666', 'bold' => true, 'underline' => 'single']);
-        $phpWord->addTitleStyle(3, ['size' => 14, 'italic' => true]);
+        $phpWord->addTitleStyle(null, ['size' => 22, 'color' => '#344c77', 'bold' => true]);
+        $phpWord->addTitleStyle(1, ['size' => 20, 'color' => '#344c77', 'bold' => true]);
+        $phpWord->addTitleStyle(2, ['size' => 14, 'color' => '#666666', 'bold' => true]);
+        $phpWord->addTitleStyle(3, ['size' => 12, 'italic' => true]);
         $phpWord->addTitleStyle(4, ['size' => 12]);
 
         $section->addTitle($collection->name, 0);
 
-        $section->addText($collection->description);
+        $section->addText('Description '. $collection->description);
 
-        $section->addText('Exported from Corpus at ' . now());
+        $section->addText('Exported from Corpus at ' . now(), ['size' => 12, 'color' => '#666666', 'italic' => true]);
 
 
-        $section->addTitle('Texts from ' . $collection->name, 1);
+        $section->addTitle('Texts', 1);
 
         $tableStyle = [
             'borderColor' => '#cccccc',
@@ -68,12 +71,12 @@ class CollectionCodebookController extends Controller
         $phpWord->addTableStyle('myTable', $tableStyle, $firstRowStyle);
         $table = $section->addTable('myTable');
         $table->addRow();
-        $table->addCell()->addText('#');
-        $table->addCell()->addText('Title');
-        $table->addCell()->addText('Abstract');
-        $table->addCell()->addText('Reading estimate');
-        $table->addCell()->addText('Tagging estimate');
-        $table->addCell()->addText('Updated');
+        $table->addCell()->addText('#', $firstRowStyle);
+        $table->addCell()->addText('Title', $firstRowStyle);
+        $table->addCell()->addText('Abstract', $firstRowStyle);
+        $table->addCell()->addText('Reading estimate', $firstRowStyle);
+        $table->addCell()->addText('Tagging estimate', $firstRowStyle);
+        $table->addCell()->addText('Updated', $firstRowStyle);
 
         foreach ($collection->texts as $key => $text) {
             $table->addRow();
@@ -98,7 +101,10 @@ class CollectionCodebookController extends Controller
         $section = $phpWord->addSection();
         $section->addTitle('Codebook of ' . $collection->name, 1);
         foreach ($collection->tags as $key => $tag) {
-            $section->addTitle($tag->name, 2);
+            $section->addTitle('🏷️ '. $tag->name, 2);
+            $section->addText('Occurrences: '. $tag->snippets->count());
+            $section->addTextBreak(1);
+
             foreach ($tag->snippets as $snippet) {
                 $textrun = $section->addTextRun();
 
@@ -111,7 +117,7 @@ class CollectionCodebookController extends Controller
                 $textrun->addText(' [...] ');
                 $textrun->addTextBreak(1);
                 $textrun->addText($snippet['text']['name'], ['size' => 8, 'color' => '#666666', 'underline' => 'single']);
-                $textrun->addTextBreak(2);
+                $textrun->addTextBreak(1);
             }
         }
         
