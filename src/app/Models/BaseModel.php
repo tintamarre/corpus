@@ -23,8 +23,8 @@ class BaseModel extends Model
       'updated_at_diff'  => (string)$this->updated_at->diffForHumans(['parts' => 2]),
       'created_at'       => (string)$this->created_at,
       'created_at_diff'  => (string)$this->created_at->diffForHumans(['parts' => 2]),
-      'cached_at'      => $this->cached_at ? (string)$this->cached_at : false ,
-      'cached_at_diff'      => $this->cached_at ? (string)$this->cached_at->diffForHumans(['parts' => 2]) : __('app.never'),
+      'cached_at'        => $this->cached_at ? (string)$this->cached_at : false ,
+      'cached_at_diff'   => $this->cached_at ? (string)$this->cached_at->diffForHumans(['parts' => 2]) : __('app.never'),
     ];
     }
 
