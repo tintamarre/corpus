@@ -155,8 +155,10 @@ class CollectionCodebookController extends Controller
     {
         $textlines = explode("\n", $string);
   
-        foreach ($textlines as $line) {
-            $textrun->addTextBreak();
+        foreach ($textlines as $key => $line) {
+            if ($key >= 1) {
+                $textrun->addTextBreak();
+            }
             $textrun->addText($line, $style);
         }
     }
