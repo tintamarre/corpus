@@ -49,7 +49,12 @@ class CollectionCodebookController extends Controller
 
         $phpWord->addParagraphStyle('pStyler', ['align' => 'right']);
         $textrun = $header->addTextRun('pStyler');
-        $textrun->addText('Exported from Corpus at ' . now(), ['size' => 10, 'color' => '#666666', 'italic' => true]);
+
+        $textrun->addText(date('Ymd H:i:s'), ['size' => 8, 'color' => '#666666']);
+ 
+        $footer = $section->addFooter();
+        $textrun = $footer->addTextRun('pStyler');
+        $textrun->addText('Exported from https://corpus.lltl.be', ['size' => 8, 'color' => '#666666', 'italic' => true]);
 
         // Define styles
         $fontStyle12 = ['spaceAfter' => 60, 'size' => 12];
@@ -123,7 +128,6 @@ class CollectionCodebookController extends Controller
                     
                     $textrun->addTextBreak();
 
-                    $phpWord->addParagraphStyle('pStyler', ['align' => 'right']);
                     $textrun = $section->addTextRun('pStyler');
                     $textrun->addText('from ', ['size' => 8, 'color' => '#cccccc']);
                     $textrun->addText($snippet['text']['name'], ['size' => 8, 'color' => '#666666', 'underline' => 'single']);
