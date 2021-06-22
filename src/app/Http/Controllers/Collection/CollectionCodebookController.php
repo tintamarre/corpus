@@ -130,7 +130,10 @@ class CollectionCodebookController extends Controller
 
                     $textrun = $section->addTextRun('pStyler');
                     $textrun->addText('from ', ['size' => 8, 'color' => '#cccccc']);
-                    $textrun->addText($snippet['text']['name'], ['size' => 8, 'color' => '#666666', 'underline' => 'single']);
+
+                    $textrun->addLink($snippet['text']['links']['self'], $snippet['text']['name'], ['size' => 8, 'color' => '#666666', 'underline' => 'single']);
+
+
                     $textrun->addTextBreak();
                 }
                 $textrun->addTextBreak();
