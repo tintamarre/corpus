@@ -38,10 +38,18 @@ class CollectionCodebookController extends Controller
         $properties->setTitle('Corpus');
         $properties->setDescription('Corpus export');
         
+
         $phpWord->getSettings()->setUpdateFields(true);
 
         // New section
         $section = $phpWord->addSection();
+        $header = $section->addHeader();
+        $header->addWatermark(storage_path('app/public/logo.png'), ['marginBottom' => 20, 'marginRight' => 15, 'width' => 30,
+        'height' => 30]);
+
+        $phpWord->addParagraphStyle('pStyler', ['align' => 'right']);
+        $textrun = $header->addTextRun('pStyler');
+        $textrun->addText('Exported from Corpus at ' . now(), ['size' => 10, 'color' => '#666666', 'italic' => true]);
 
         // Define styles
         $fontStyle12 = ['spaceAfter' => 60, 'size' => 12];
@@ -56,9 +64,6 @@ class CollectionCodebookController extends Controller
         $section->addTitle($collection->name, 0);
 
         $section->addText('Description '. $collection->description);
-
-        $section->addText('Exported from Corpus at ' . now(), ['size' => 12, 'color' => '#666666', 'italic' => true]);
-
 
         $section->addTitle('Texts', 1);
 
@@ -101,23 +106,30 @@ class CollectionCodebookController extends Controller
         $section = $phpWord->addSection();
         $section->addTitle('Codebook of ' . $collection->name, 1);
         foreach ($collection->tags as $key => $tag) {
-            $section->addTitle('🏷️ '. $tag->name, 2);
-            $section->addText('Occurrences: '. $tag->snippets->count());
-            $section->addTextBreak(1);
+            if ($tag->snippets->count() >= 1) {
+                $section->addTitle('🏷️ '. $tag->name, 2);
+                $section->addText($tag->snippets->count() . ' occurrences', ['size' => 8, 'color' => '#666666', 'name' => 'Arial']);
+                $section->addTextBreak();
+    
+                foreach ($tag->snippets as $snippet) {
+                    $textrun = $section->addTextRun();
+    
+                    $before_snippet = mb_substr($snippet['segment_content'], $snippet['snippet_start'] <= 50 ? 0 : $snippet['snippet_start'] - 50, $snippet['snippet_start'] <= 50 ? $snippet['snippet_start'] : 50);
+                    $after_snippet = mb_substr($snippet['segment_content'], $snippet['snippet_end'], $snippet['snippet_end'] + 50 >= mb_strlen($snippet['segment_content']) ? mb_strlen($snippet['segment_content']) - $snippet['snippet_end'] : 50);
+                    
+                    $this->nl2wbr('... ' . $before_snippet, $textrun, []);
+                    $this->nl2wbr($snippet['snippet_content'], $textrun, ['bgColor' => '#FFFF00']);
+                    $this->nl2wbr($after_snippet . ' ...', $textrun, []);
+                    
+                    $textrun->addTextBreak();
 
-            foreach ($tag->snippets as $snippet) {
-                $textrun = $section->addTextRun();
-
-                $before_snippet = mb_substr($snippet['segment_content'], $snippet['snippet_start'] <= 50 ? 0 : $snippet['snippet_start'] - 50, $snippet['snippet_start'] <= 50 ? $snippet['snippet_start'] : 50);
-                $after_snippet = mb_substr($snippet['segment_content'], $snippet['snippet_end'], $snippet['snippet_end'] + 50 >= mb_strlen($snippet['segment_content']) ? mb_strlen($snippet['segment_content']) - $snippet['snippet_end'] : 50);
-                $textrun->addText(' [...] ');
-                $textrun->addText($before_snippet);
-                $textrun->addText($snippet['snippet_content'], ['bgColor' => '#FFFF00']);
-                $textrun->addText($after_snippet);
-                $textrun->addText(' [...] ');
-                $textrun->addTextBreak(1);
-                $textrun->addText($snippet['text']['name'], ['size' => 8, 'color' => '#666666', 'underline' => 'single']);
-                $textrun->addTextBreak(1);
+                    $phpWord->addParagraphStyle('pStyler', ['align' => 'right']);
+                    $textrun = $section->addTextRun('pStyler');
+                    $textrun->addText('from ', ['size' => 8, 'color' => '#cccccc']);
+                    $textrun->addText($snippet['text']['name'], ['size' => 8, 'color' => '#666666', 'underline' => 'single']);
+                    $textrun->addTextBreak();
+                }
+                $textrun->addTextBreak();
             }
         }
         
@@ -137,5 +149,15 @@ class CollectionCodebookController extends Controller
     public function text(Collection $collection, Text $text)
     {
         # code...
+    }
+
+    private function nl2wbr($string, $textrun, $style)
+    {
+        $textlines = explode("\n", $string);
+  
+        foreach ($textlines as $line) {
+            $textrun->addTextBreak();
+            $textrun->addText($line, $style);
+        }
     }
 }
