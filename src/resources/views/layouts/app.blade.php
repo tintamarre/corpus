@@ -157,19 +157,21 @@
 
     </div>
 
-    <footer class="footer small">
-        <div class="text-center">
-            2017-{{ date('Y') }} -
-            <a href="https://legaltech.uliege.be/"
-                target="_blank">LegalTech Lab
-                ULiège</a></div>
-        <div class="text-center">
-            <a href="https://docs.lltl.be/"
-                target="_blank">Documentation</a> -
+    <footer class="footer">
+        <div class="text-center small">
+            <span class="text-dark">2019-{{ date('Y') }}</span> -
+            <a href="https://legaltech.uliege.be/" target="_blank"
+                class="text-dark">LegalTech Lab
+                ULiège</a>
+        </div>
+        <div class="text-center small">
+            <a href="https://docs.lltl.be/" target="_blank"
+                class="text-dark">Documentation</a> -
             <a href="https://github.com/tintamarre/corpus"
-                target="_blank">Source code</a> - <a
-                href="https://github.com/tintamarre/corpus/issues"
-                target="_blank">Help and contact</a>
+                target="_blank" class="text-dark">Source
+                code</a> -
+            <a href="https://github.com/tintamarre/corpus/issues"
+                class="text-dark" target="_blank">Help</a>
         </div>
     </footer>
 
