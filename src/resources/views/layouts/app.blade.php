@@ -158,20 +158,29 @@
     </div>
 
     <footer class="footer">
+
         <div class="text-center small">
-            <span class="text-dark">2019-{{ date('Y') }}</span> -
-            <a href="https://legaltech.uliege.be/" target="_blank"
-                class="text-dark">LegalTech Lab
-                ULiège</a>
-        </div>
-        <div class="text-center small">
-            <a href="https://docs.lltl.be/" target="_blank"
-                class="text-dark">Documentation</a> -
-            <a href="https://github.com/tintamarre/corpus"
-                target="_blank" class="text-dark">Source
-                code</a> -
+
+            Project by <a
+                href="{{ config('core_settings.lltl_url') }}"
+                alt="LLTL ULiège" target="_blank">
+                <em>{{ config('core_settings.project_name') }}</em>
+            </a>
+            <a href="http://labos.ulg.ac.be/cris/" alt="Cris ULiège"
+                target="_blank">CRIS</a>
+            from <a href="{{ config('core_settings.promotor_url') }}"
+                alt="">{{ config('core_settings.promotor_name') }}</a>
+            <br />
+            <span class="text-dark">2019-{{ date('Y') }}</span> - <a
+                href="{{ config('core_settings.license_url') }}">GPLv3
+                License</a> | <a
+                href="{{ config('core_settings.git_source_code') }}">Source
+                code on GitHub</a> |
+            <a href="https://docs.lltl.be/" target="_blank">Docs</a> |
+
             <a href="https://github.com/tintamarre/corpus/issues"
-                class="text-dark" target="_blank">Help</a>
+                target="_blank">Help</a>
+
         </div>
     </footer>
 

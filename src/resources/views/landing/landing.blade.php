@@ -76,29 +76,6 @@
                     </div>
                 </div>
 
-                <div class="card-footer">
-                    <div class="text-center small">
-                        <a
-                            href="{{ config('core_settings.license_url') }}">GPLv3
-                            License</a> | <a
-                            href="{{ config('core_settings.git_source_code') }}">Source
-                            code on GitHub</a>
-                        <br />
-                        Project by <a
-                            href="{{ config('core_settings.lltl_url') }}"
-                            alt="LLTL ULiège" target="_blank">
-                            <em>{{ config('core_settings.project_name') }}</em>
-                        </a>,
-                        <a href="http://labos.ulg.ac.be/cris/"
-                            alt="Cris ULiège" target="_blank">CRIS</a>
-                        and <a href="https://www.spiral.uliege.be/"
-                            alt="Spiral ULiège"
-                            target="_blank">Spiral</a>
-                        from <a
-                            href="{{ config('core_settings.promotor_url') }}"
-                            alt="">{{ config('core_settings.promotor_name') }}</a>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
