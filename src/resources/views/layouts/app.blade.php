@@ -157,6 +157,22 @@
 
     </div>
 
+    <footer class="footer small">
+        <div class="text-center">
+            2017-{{ date('Y') }} -
+            <a href="https://legaltech.uliege.be/"
+                target="_blank">LegalTech Lab
+                ULiège</a></div>
+        <div class="text-center">
+            <a href="https://docs.lltl.be/"
+                target="_blank">Documentation</a> -
+            <a href="https://github.com/tintamarre/corpus"
+                target="_blank">Source code</a> - <a
+                href="https://github.com/tintamarre/corpus/issues"
+                target="_blank">Help and contact</a>
+        </div>
+    </footer>
+
     @include('partials.js_translations')
 
 </body>
